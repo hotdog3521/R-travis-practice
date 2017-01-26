@@ -1,5 +1,6 @@
 language: r
 cache: packages
+sudo: false
 r: 3.2.4
 script:
   - source(test.r);
