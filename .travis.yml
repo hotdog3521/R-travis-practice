@@ -1,7 +1,16 @@
-language: r
-cache: packages
-sudo: false
-r: 3.2.4
-script:
-  - source(test.r);
-  - test.dir('.');
+language: c
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+
+install:
+  - ./travis-tool.sh install_r testthat
+  - ./travis-tool.sh install_r stringr
+
+script: 
+  - Rscript -e "library(testthat);invisible(source_dir('./',env=globalenv()));test_dir('.'))"
+
+notifications:
+  email: false
