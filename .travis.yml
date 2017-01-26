@@ -1,4 +1,5 @@
 language: r
+cache: packages
 r: 3.2.4
 script:
   - source(test.r);
