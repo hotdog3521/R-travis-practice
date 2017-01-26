@@ -1,0 +1,5 @@
+language: r
+r: 3.4.3
+script:
+  - source(test.r);
+  - test.dir('.');
