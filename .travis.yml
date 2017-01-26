@@ -8,7 +8,6 @@ before_install:
 
 install:
   - ./travis-tool.sh install_r testthat
-  - ./travis-tool.sh install_r stringr
 
 script: 
   - Rscript -e "library(testthat);test_dir('.')"
