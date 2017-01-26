@@ -11,7 +11,7 @@ install:
   - ./travis-tool.sh install_r stringr
 
 script: 
-  - Rscript -e "library(testthat);test_dir('.'))"
+  - Rscript -e "library(testthat);test_dir('.')"
 
 notifications:
   email: false
