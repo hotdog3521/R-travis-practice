@@ -1,5 +1,5 @@
 language: r
-r: 3.4.3
+r: 3.2.4
 script:
   - source(test.r);
   - test.dir('.');
