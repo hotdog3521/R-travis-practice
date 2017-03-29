@@ -11,6 +11,7 @@ install:
 
 script: 
   - Rscript -e "library(testthat);test_dir('.')"
+  - Rscript -e "install.packages("devtools", dependencies = TRUE)"
   - Rscript -e "require(devtools)"
   - Rscript -e "install_github("rfigshare","ropensci")"
   - Rscript -e "require(rfigshare)"
