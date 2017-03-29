@@ -11,6 +11,8 @@ install:
 
 script: 
   - Rscript -e "library(testthat);test_dir('.')"
+  - Rscript -e "require(devtools);install_github("rfigshare","ropensci")"
+  - Rscript -e "require(rfigshare)"
 
 notifications:
   email: false
