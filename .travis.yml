@@ -11,7 +11,9 @@ install:
 
 script: 
   - Rscript -e "library(testthat);test_dir('.')"
-  - Rscript -e "install.packages("devtools", dependencies = TRUE)"
+  - sudo apt-get -y build-dep libcurl4-gnutls-dev
+  - sudo apt-get -y install libcurl4-gnutls-dev
+  - Rscript -e "library(devtools)"
   - Rscript -e "require(devtools)"
   - Rscript -e "install_github("rfigshare","ropensci")"
   - Rscript -e "require(rfigshare)"
