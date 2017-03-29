@@ -16,7 +16,7 @@ script:
   - sudo apt-get -y install libcurl4-gnutls-dev
   - Rscript -e "library(devtools)"
   - Rscript -e "require(devtools)"
-  - Rscript -e "install_github("rfigshare","ropensci")"
+  #- Rscript -e "install_github("rfigshare","ropensci")"
   - Rscript -e "require(rfigshare)"
 
 notifications:
