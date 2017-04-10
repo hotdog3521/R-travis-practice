@@ -1,6 +1,7 @@
 language: c
 
 sudo: required
+
 before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
@@ -11,13 +12,9 @@ install:
   - ./travis-tool.sh install_r devtools
 
 script: 
-  - Rscript -e "library(testthat);test_dir('.')"
-  - sudo apt-get -y build-dep libcurl4-gnutls-dev
-  - sudo apt-get -y install libcurl4-gnutls-dev
-  - Rscript -e "library(devtools)"
-  - Rscript -e "require(devtools)"
-  #- Rscript -e "install_github("rfigshare","ropensci")"
-  - Rscript -e "require(rfigshare)"
+  #- Rscript -e "library(testthat);test_dir('.')"
+  - Rscript -e "source('download.r')"
+
 
 notifications:
   email: false
