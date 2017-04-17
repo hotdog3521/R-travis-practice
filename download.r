@@ -1,18 +1,3 @@
-require(RGoogleDocs)
-
-upload_to_google_drive <- function(file) {
-	#get connection to google drive
-	auth <- getGoogleAuth("hotdog3521@gmail.com", "XOrua434!@!")
-	con  <- getGoogleDocsConnection(auth)
-	#upload data(pdf) to google drive
-	done <- uploadDoc("", con, name = "boo3", type = "pdf")
-     
-
-	done <- uploadDoc(content = pdf, con = con, name = file, type = "pdf")
-}
-
-
-
 plot_measured_reference_raw <- function(time_series_measurements){
 
   pdf(paste0("measured_reference_raw",as.numeric(Sys.time()), ".pdf"), width=21, height=21)
