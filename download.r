@@ -1,3 +1,16 @@
+require(RGoogleDocs)
+
+upload_to_google_drive <- function(file) {
+	#get connection to google drive
+	auth <- getGoogleAuth("hotdog3521@gmail.com", "XOrua434!@!")
+	con  <- getGoogleDocsConnection(auth)
+	#upload data(pdf) to google drive
+	done <- uploadDoc("", con, name = "boo3", type = "pdf")
+     
+
+	done <- uploadDoc(content = pdf, con = con, name = file, type = "pdf")
+}
+
 
 
 plot_measured_reference_raw <- function(time_series_measurements){
@@ -53,6 +66,7 @@ convert_file_readable <- function(address) {
 main <- function(address) {
 	data <- convert_file_readable(address)
 	analyze(data)
+	upload_to_google_drive()
 }
 filenames_list <- c(
   "https://ndownloader.figshare.com/files/7853047"
