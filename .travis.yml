@@ -13,7 +13,7 @@ install:
 
 script: 
   #- Rscript -e "library(testthat);test_dir('.')"
-  - Rscript "source('download.r')"
+  - Rscript -e "source('download.r')"
 
 
 notifications:
