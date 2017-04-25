@@ -16,6 +16,7 @@ install:
 script: 
   #- Rscript -e "library(testthat);test_dir('.')"
   - Rscript -e "source('download.r')"
+  - 
 
 
 notifications:
