@@ -12,12 +12,12 @@ before_install:
 install:
   - ./travis-tool.sh install_r testthat
   - ./travis-tool.sh install_r devtools
+  - pip install dropbox
 
 script: 
   #- Rscript -e "library(testthat);test_dir('.')"
   - Rscript -e "source('download.r')"
-  - 
-
+  - python upload.py
 
 notifications:
   email: false

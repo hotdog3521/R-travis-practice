@@ -1,6 +1,11 @@
 plot_measured_reference_raw <- function(time_series_measurements){
 
-  pdf(paste0("measured_reference_raw",as.numeric(Sys.time()), ".pdf"), width=21, height=21)
+  filename <- paste0("output/measured_reference_raw",as.numeric(Sys.time()), ".pdf")
+  pdf(filename, width=21, height=21)
+  fileConn<-file("output.txt")
+  writeLines(c(filename), fileConn)
+  close(fileConn)
+  
   par(mfrow=c(7,1))
 
     plot(time_series_measurements$time, time_series_measurements$measured_M0,type='l', xlab="Time (s)", ylab="M loadcell (N,green) | Motor Cmd (V, blue)", ylim=c(0,20))
@@ -30,6 +35,7 @@ plot_measured_reference_raw <- function(time_series_measurements){
     plot(time_series_measurements$time, time_series_measurements$measured_M6,type='l', xlab="Time (s)", ylab="M loadcell (N,green) | Motor Cmd (V, blue)", ylim=c(0,20))
     lines(time_series_measurements$time, time_series_measurements$reference_M6, col="green")
     lines(time_series_measurements$time, time_series_measurements$command_M6, col="lightblue")
+
   dev.off()
 }
 
@@ -143,12 +149,8 @@ convert_file_readable <- function(address) {
 main <- function(address) {
 	data <- convert_file_readable(address)
 	analyze(data)
-	#upload_to_google_drive()
 }
 filenames_list <- c(
   "https://ndownloader.figshare.com/files/7853047"
   )
 lapply(filenames_list, main)
-
-#Creating directory 
-

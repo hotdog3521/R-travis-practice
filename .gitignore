@@ -1,5 +1,3 @@
 *.httr-oauth
-*.txt
 *.RData
-*.pdf
 *.sh
